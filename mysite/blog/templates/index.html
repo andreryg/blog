@@ -1,40 +1,7 @@
-{% extends "base.html" %}
-{% block content %}
-<style>
-    body {
-        font-family: "Roboto", sans-serif;
-        font-size: 18px;
-        background-color: #fdfdfd;
-    }
+{% extends "base.html" %}{% block content %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.min.css' %}"/>
 
-    .head_text {
-        color: white;
-    }
-
-    .card {
-        box-shadow: 0 16px 48px #BBBBBB;
-    }
-
-    .widthSet {
-        max-width: 688.233px;
-    }
-</style>
-
-<header class="masthead">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class=" col-md-8 col-md-10 mx-auto">
-                <div class="site-heading">
-                    <img src="media/images/cogito_thumb.jpg" class="widthSet" />
-                    <h3 class=" site-heading my-4 mt-3 text-white"> Welcome to the dankest Blog evah </h3>
-                    <p class="text-light">Are you dank enough to become the green ninja? &nbsp
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
 <div class="container">
     <div class="row">
         <!-- Blog Entries Column -->
@@ -42,16 +9,18 @@
             {% for post in post_list %}
             <div class="card mb-4">
                 <div class="card-body">
-                    <img src="{{ post.image.url }}" class="widthSet" />
-                    <h2 class="card-title">{{ post.title }}</h2>
+
+                    <img src="{{ post.image.url }}" class="widthSet" href="/">
+                    <h2 class="card-title">{{ post.title }} </h2>
                     <p class="card-text text-muted h6">{{ post.Author }} | {{ post.created_on}} </p>
-                    <p class="card-text">{{post.content|slice:":200" }}</p>
-                    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+                    <p class="card-text">{{post.content|safe|slice:":200" }}</p>
+                    <a href="{% url 'post_detail' post.slug  %}">Read More &rarr;</a>
                 </div>
             </div>
             {% endfor %}
         </div>
         {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
     </div>
+    {% block paginator %} {% include 'list.html' %} {% endblock paginator %}
 </div>
 {%endblock%}

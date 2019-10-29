@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/style.min.css' %}"/>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <a class="navbar-header" href="{% url "home" %}">
+            <img src={% static 'images/logo.svg' %} style="height:120%;"/>
+        </a>
+        <div class="col-md-8 col-md-10 mx-auto">
+            <div class="site-heading">
+                <h3 class=" site-heading my-4 mt-3 text-white"> Welcome to the dankest Blog evah </h3>
+            </div>
+        </div>
+        <hr style="width: 95%;height:1px;background:#13395B"/>
+        <div class="nav navbar-nav">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Page 1-1</a></li>
+                    <li><a href="#">Page 1-2</a></li>
+                    <li><a href="#">Page 1-3</a></li>
+                </ul>
+            </li>
+        </div>
+
+        </div>
+    </div>
+</nav>
