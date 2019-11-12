@@ -1,0 +1,19 @@
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/style.min.css' %}"/>
+
+<style>
+    .footer{
+        background-color: #13395B;
+        position: fixed;
+        width: 100%;
+        left:0;
+        bottom: 0;
+        height: 106px;
+    }
+</style>
+
+<div class="footer">
+    <a class="navbar-header" href="{% url "home" %}">
+        <img style="margin-top: 29px;margin-left: 32px" src={% static 'media/images/Logo_white.svg' %} />
+    </a>
+</div>
